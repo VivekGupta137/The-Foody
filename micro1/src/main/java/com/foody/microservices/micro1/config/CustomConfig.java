@@ -1,34 +1,35 @@
 package com.foody.microservices.micro1.config;
 
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties("cc")
+@ConfigurationProperties("cc.micro1")
 @Component
 public class CustomConfig {
-    private int max, min;
+    private int maximum, minimum;
 
     public CustomConfig() {
     }
 
-    public CustomConfig(int max, int min) {
-        this.max = max;
-        this.min = min;
+    public CustomConfig(int maximum, int minimum) {
+        this.maximum = maximum;
+        this.minimum = minimum;
     }
 
-    public int getMax() {
-        return max;
+    public int getMaximum() {
+        return maximum;
     }
 
-    public void setMax(int max) {
-        this.max = max;
+    public int getMinimum() {
+        return minimum;
     }
 
-    public int getMin() {
-        return min;
+    public void setMaximum(int maximum) {
+        this.maximum = maximum;
     }
 
-    public void setMin(int min) {
-        this.min = min;
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
     }
 }

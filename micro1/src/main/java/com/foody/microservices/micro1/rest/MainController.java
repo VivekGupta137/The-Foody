@@ -2,17 +2,22 @@ package com.foody.microservices.micro1.rest;
 
 import com.foody.microservices.micro1.config.CustomConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
-    @Autowired
-    CustomConfig custom;
+    @Value("${cc.micro1.maximum}")
+    int max;
+    @Value("${cc.micro1.minimum}")
+    int min;
 
-    @GetMapping("")
+    @Autowired
+    CustomConfig cc;
+
+    @RequestMapping()
     public CustomConfig getConfig(){
-        return custom;
+        return cc;
     }
 }
-
